@@ -1,0 +1,22 @@
+<div class="d-flex w-100 py-2 pr-1 justify-content-between align-items-center modal-header">
+    <span class="text-bold primary" style="font-size:1.2rem">Choose stats</span>
+    <button mat-dialog-close class="btn-close">
+      <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
+    </button>
+  </div>
+<div class="row">
+    <ng-container *ngFor="let item of filterList">
+        <div class="col-6">
+            <input  type="checkbox" (change)="chooseFilter($event,item)">
+            <label class="ml-2">{{item.name}}</label>
+          </div>
+          <div class="col-6">
+            <input type="number" [(ngModel)]="item.value">
+          </div>
+    </ng-container>
+</div>
+<div>
+    <button (click)="close()">
+        Apply
+     </button>
+</div>

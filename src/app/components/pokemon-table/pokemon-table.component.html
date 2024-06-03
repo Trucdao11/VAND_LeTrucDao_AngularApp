@@ -1,0 +1,100 @@
+<div class="row mt-3">
+    <div class="col-12">
+        <table class="w-100">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th class="text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span>Total</span>
+                        <div class="d-flex flex-column" style="width: 20%; cursor: pointer;" (click)="sort('total')">
+                            <span class="fa fa-caret-up icon-sort" *ngIf="!sortType || (sortOrders === 'asc') || (sortType != 'total')"></span>
+                            <span class="fa fa-caret-down icon-sort" *ngIf="!sortType || (sortOrders === 'desc') || (sortType != 'total')"></span>
+                        </div>  
+                    </div> 
+                </th>
+                <th class="text-center ">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span>HP</span>
+                        <div class="d-flex flex-column" style="width: 20%; cursor: pointer;" (click)="sort('hp')">
+                            <span class="fa fa-caret-up icon-sort" *ngIf="!sortType || (sortOrders === 'asc') || (sortType != 'hp')"></span>
+                            <span class="fa fa-caret-down icon-sort" *ngIf="!sortType || (sortOrders === 'desc') || (sortType != 'hp')"></span>
+                        </div>
+                    </div>  
+                </th>
+                <th class="text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span>Attack</span>
+                        <div class="d-flex flex-column" style="width: 20%; cursor: pointer;" (click)="sort('attack')">
+                            <span class="fa fa-caret-up icon-sort" *ngIf="!sortType || (sortOrders === 'asc') || (sortType != 'attack')"></span>
+                            <span class="fa fa-caret-down icon-sort" *ngIf="!sortType || (sortOrders === 'desc') || (sortType != 'attack')"></span>
+                        </div>
+                    </div>
+                       
+                </th>
+                <th class="text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span>Defense</span>
+                        <div class="d-flex flex-column" style="width: 20%; cursor: pointer;" (click)="sort('defense')">
+                            <span class="fa fa-caret-up icon-sort" *ngIf="!sortType || (sortOrders === 'asc') || (sortType != 'defense')"></span>
+                            <span class="fa fa-caret-down icon-sort" *ngIf="!sortType || (sortOrders === 'desc') || (sortType != 'defense')"></span>
+                        </div> 
+                    </div>
+                </th>
+                <th class="text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span>Sp.Atk</span>
+                        <div class="d-flex flex-column" style="width: 20%; cursor: pointer;" (click)="sort('sp_atk')">
+                            <span class="fa fa-caret-up icon-sort" *ngIf="!sortType || (sortOrders === 'asc') || (sortType != 'sp_atk')"></span>
+                            <span class="fa fa-caret-down icon-sort" *ngIf="!sortType || (sortOrders === 'desc') || (sortType != 'sp_atk')"></span>
+                        </div> 
+                    </div>   
+                </th>
+                <th class="text-center">
+                    <div class=" d-flex align-items-center justify-content-center">
+                        <span>Sp.Def</span>
+                        <div class="d-flex flex-column" style="width: 20%; cursor: pointer;" (click)="sort('sp_def')">
+                            <span class="fa fa-caret-up icon-sort" *ngIf="!sortType || (sortOrders === 'asc') || (sortType != 'sp_def')"></span>
+                            <span class="fa fa-caret-down icon-sort" *ngIf="!sortType || (sortOrders === 'desc') || (sortType != 'sp_def')"></span>
+                        </div> 
+                    </div>
+                </th>
+                <th class="text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span>Speed</span>
+                        <div class="d-flex flex-column" style="width: 20%; cursor: pointer;" (click)="sort('speed')">
+                            <span class="fa fa-caret-up icon-sort" *ngIf="!sortType || (sortOrders === 'asc') || (sortType != 'speed')"></span>
+                            <span class="fa fa-caret-down icon-sort" *ngIf="!sortType || (sortOrders === 'desc') || (sortType != 'speed')"></span>
+                        </div> 
+                    </div>   
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of pokemonList"  (click)="pokemonDetail(item.id)">
+                <td>{{item.name}}</td>
+                <td class="d-flex">
+                        <span class="badge-type" [ngClass]="getTypeColor(item.type_name_1)" *ngIf="item.type_name_1">
+                            {{item?.type_name_1}}
+                          </span>
+                    
+                      <span class="badge-type"  [ngClass]="getTypeColor(item.type_name_2)" *ngIf="item.type_name_2">
+                        {{item?.type_name_2}}
+                      </span>
+                </td>
+                <td class="text-center">{{item.total}}</td>
+                <td class="text-center">{{item.hp}}</td>
+                <td class="text-center">{{item.attack}}</td>
+                <td class="text-center">{{item.defense}}</td>
+                <td class="text-center">{{item.sp_atk}}</td>
+                <td class="text-center">{{item.sp_def}}</td>
+                <td class="text-center">{{item.speed}}</td>
+
+
+              </tr>
+        
+            </tbody>
+          </table>
+    </div>
+</div>
